@@ -39,8 +39,7 @@ async function resolveReccursiveTree(tree: PromiseTree) {
 async function makeAction(path: string) {
   const promises = reccuriveBuildElementPromises(ComponentStructure.root, path);
   console.log(path);
-  const folderPromise = writeFolderPromise(ComponentStructure.root, path);
-  resolveReccursiveTree(promises);
+  // resolveReccursiveTree(promises);
 }
 
 export default makeAction;
