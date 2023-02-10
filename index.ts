@@ -1,5 +1,6 @@
 import { program } from "commander";
-import makeAction from "./actions/make";
+import makeAction from "./src/actions/make";
+
 program
   .command("make <path>")
   .description("Make a folder using template")
