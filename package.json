@@ -4,7 +4,9 @@
   "description": "Utilities CLI tool for ramping up development",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild index.ts --bundle --outdir=dist --platform=node",
+    "build:watch": "esbuild index.ts --bundle --outdir=dist --platform=node --watch"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,13 @@
   "bugs": {
     "url": "https://github.com/UncleKhab/unqueue_cli/issues"
   },
-  "homepage": "https://github.com/UncleKhab/unqueue_cli#readme"
+  "homepage": "https://github.com/UncleKhab/unqueue_cli#readme",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@types/fs-extra": "^11.0.1",
+    "commander": "^10.0.0",
+    "fs-extra": "^11.1.0"
+  }
 }
