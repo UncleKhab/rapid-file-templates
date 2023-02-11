@@ -1,7 +1,7 @@
 import { TemplateStructure } from "./template";
 import { TemplateElementTypes } from "./template-element";
 
-const ComponentStructure: TemplateStructure = {
+const defaultTemplate: TemplateStructure = {
   name: "SimpleComponent",
   root: {
     type: TemplateElementTypes.Folder,
@@ -12,15 +12,7 @@ const ComponentStructure: TemplateStructure = {
         elementProps: {
           name: "main.{extension}.tsx",
           extension: "component",
-          content: `
-          import React, {FC} from "react"
-          import useStyles from "./styles.ts"
-          type Props = {}
-          const MainComponent:FC<Props>  = (props) => {
-            const styles = useStyles()
-            return <div className={styles.mainComponentContainer}><div>
-          }
-          `,
+          content: ``,
         },
       },
       {
@@ -28,26 +20,11 @@ const ComponentStructure: TemplateStructure = {
         elementProps: {
           name: "styles.ts",
           extension: "styles",
-          content: `
-          const useStyles = () => {mainComponentContainer: {}}
-          `,
+          content: ``,
         },
-      },
-      {
-        type: TemplateElementTypes.Folder,
-        elementProps: { name: "text-files" },
-        elements: [
-          {
-            type: TemplateElementTypes.File,
-            elementProps: {
-              name: "index.txt",
-              content: `I don't really know what content`,
-            },
-          },
-        ],
       },
     ],
   },
 };
 
-export default ComponentStructure;
+export default defaultTemplate;

@@ -1,0 +1,40 @@
+{
+  "component-template": {
+    "name": "SimpleComponent",
+    "root": {
+      "type": "Folder",
+      "elementProps": { "name": "fileName" },
+      "elements": [
+        {
+          "type": "File",
+          "elementProps": {
+            "name": "main.{extension}.tsx",
+            "extension": "component",
+            "content": "Some Content"
+          }
+        },
+        {
+          "type": "File",
+          "elementProps": {
+            "name": "styles.ts",
+            "extension": "styles",
+            "content": ""
+          }
+        },
+        {
+          "type": "Folder",
+          "elementProps": { "name": "text-files" },
+          "elements": [
+            {
+              "type": "File",
+              "elementProps": {
+                "name": "index.txt",
+                "content": "I don't really know what content"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

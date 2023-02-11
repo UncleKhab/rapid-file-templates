@@ -48,7 +48,7 @@ var __async = (__this, __arguments, generator) => {
 
 // node_modules/commander/lib/error.js
 var require_error = __commonJS({
-  "node_modules/commander/lib/error.js"(exports) {
+  "node_modules/commander/lib/error.js"(exports2) {
     var CommanderError2 = class extends Error {
       /**
        * Constructs the CommanderError class
@@ -78,14 +78,14 @@ var require_error = __commonJS({
         this.name = this.constructor.name;
       }
     };
-    exports.CommanderError = CommanderError2;
-    exports.InvalidArgumentError = InvalidArgumentError2;
+    exports2.CommanderError = CommanderError2;
+    exports2.InvalidArgumentError = InvalidArgumentError2;
   }
 });
 
 // node_modules/commander/lib/argument.js
 var require_argument = __commonJS({
-  "node_modules/commander/lib/argument.js"(exports) {
+  "node_modules/commander/lib/argument.js"(exports2) {
     var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var Argument2 = class {
       /**
@@ -199,14 +199,14 @@ var require_argument = __commonJS({
       const nameOutput = arg.name() + (arg.variadic === true ? "..." : "");
       return arg.required ? "<" + nameOutput + ">" : "[" + nameOutput + "]";
     }
-    exports.Argument = Argument2;
-    exports.humanReadableArgName = humanReadableArgName;
+    exports2.Argument = Argument2;
+    exports2.humanReadableArgName = humanReadableArgName;
   }
 });
 
 // node_modules/commander/lib/help.js
 var require_help = __commonJS({
-  "node_modules/commander/lib/help.js"(exports) {
+  "node_modules/commander/lib/help.js"(exports2) {
     var { humanReadableArgName } = require_argument();
     var Help2 = class {
       constructor() {
@@ -587,13 +587,13 @@ var require_help = __commonJS({
         }).join("\n");
       }
     };
-    exports.Help = Help2;
+    exports2.Help = Help2;
   }
 });
 
 // node_modules/commander/lib/option.js
 var require_option = __commonJS({
-  "node_modules/commander/lib/option.js"(exports) {
+  "node_modules/commander/lib/option.js"(exports2) {
     var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var Option2 = class {
       /**
@@ -854,15 +854,15 @@ var require_option = __commonJS({
       }
       return { shortFlag, longFlag };
     }
-    exports.Option = Option2;
-    exports.splitOptionFlags = splitOptionFlags;
-    exports.DualOptions = DualOptions;
+    exports2.Option = Option2;
+    exports2.splitOptionFlags = splitOptionFlags;
+    exports2.DualOptions = DualOptions;
   }
 });
 
 // node_modules/commander/lib/suggestSimilar.js
 var require_suggestSimilar = __commonJS({
-  "node_modules/commander/lib/suggestSimilar.js"(exports) {
+  "node_modules/commander/lib/suggestSimilar.js"(exports2) {
     var maxDistance = 3;
     function editDistance(a, b) {
       if (Math.abs(a.length - b.length) > maxDistance)
@@ -938,13 +938,13 @@ var require_suggestSimilar = __commonJS({
       }
       return "";
     }
-    exports.suggestSimilar = suggestSimilar;
+    exports2.suggestSimilar = suggestSimilar;
   }
 });
 
 // node_modules/commander/lib/command.js
 var require_command = __commonJS({
-  "node_modules/commander/lib/command.js"(exports) {
+  "node_modules/commander/lib/command.js"(exports2) {
     var EventEmitter = require("events").EventEmitter;
     var childProcess = require("child_process");
     var path = require("path");
@@ -2800,35 +2800,35 @@ Expecting one of '${allowedValues.join("', '")}'`);
       }
       return result;
     }
-    exports.Command = Command2;
+    exports2.Command = Command2;
   }
 });
 
 // node_modules/commander/index.js
 var require_commander = __commonJS({
-  "node_modules/commander/index.js"(exports, module2) {
+  "node_modules/commander/index.js"(exports2, module2) {
     var { Argument: Argument2 } = require_argument();
     var { Command: Command2 } = require_command();
     var { CommanderError: CommanderError2, InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var { Help: Help2 } = require_help();
     var { Option: Option2 } = require_option();
-    exports = module2.exports = new Command2();
-    exports.program = exports;
-    exports.Argument = Argument2;
-    exports.Command = Command2;
-    exports.CommanderError = CommanderError2;
-    exports.Help = Help2;
-    exports.InvalidArgumentError = InvalidArgumentError2;
-    exports.InvalidOptionArgumentError = InvalidArgumentError2;
-    exports.Option = Option2;
+    exports2 = module2.exports = new Command2();
+    exports2.program = exports2;
+    exports2.Argument = Argument2;
+    exports2.Command = Command2;
+    exports2.CommanderError = CommanderError2;
+    exports2.Help = Help2;
+    exports2.InvalidArgumentError = InvalidArgumentError2;
+    exports2.InvalidOptionArgumentError = InvalidArgumentError2;
+    exports2.Option = Option2;
   }
 });
 
 // node_modules/universalify/index.js
 var require_universalify = __commonJS({
-  "node_modules/universalify/index.js"(exports) {
+  "node_modules/universalify/index.js"(exports2) {
     "use strict";
-    exports.fromCallback = function(fn) {
+    exports2.fromCallback = function(fn) {
       return Object.defineProperty(function(...args) {
         if (typeof args[args.length - 1] === "function")
           fn.apply(this, args);
@@ -2843,7 +2843,7 @@ var require_universalify = __commonJS({
         }
       }, "name", { value: fn.name });
     };
-    exports.fromPromise = function(fn) {
+    exports2.fromPromise = function(fn) {
       return Object.defineProperty(function(...args) {
         const cb = args[args.length - 1];
         if (typeof cb !== "function")
@@ -2857,7 +2857,7 @@ var require_universalify = __commonJS({
 
 // node_modules/graceful-fs/polyfills.js
 var require_polyfills = __commonJS({
-  "node_modules/graceful-fs/polyfills.js"(exports, module2) {
+  "node_modules/graceful-fs/polyfills.js"(exports2, module2) {
     var constants = require("constants");
     var origCwd = process.cwd;
     var cwd = null;
@@ -3173,7 +3173,7 @@ var require_polyfills = __commonJS({
 
 // node_modules/graceful-fs/legacy-streams.js
 var require_legacy_streams = __commonJS({
-  "node_modules/graceful-fs/legacy-streams.js"(exports, module2) {
+  "node_modules/graceful-fs/legacy-streams.js"(exports2, module2) {
     var Stream = require("stream").Stream;
     module2.exports = legacy;
     function legacy(fs) {
@@ -3272,7 +3272,7 @@ var require_legacy_streams = __commonJS({
 
 // node_modules/graceful-fs/clone.js
 var require_clone = __commonJS({
-  "node_modules/graceful-fs/clone.js"(exports, module2) {
+  "node_modules/graceful-fs/clone.js"(exports2, module2) {
     "use strict";
     module2.exports = clone;
     var getPrototypeOf = Object.getPrototypeOf || function(obj) {
@@ -3295,7 +3295,7 @@ var require_clone = __commonJS({
 
 // node_modules/graceful-fs/graceful-fs.js
 var require_graceful_fs = __commonJS({
-  "node_modules/graceful-fs/graceful-fs.js"(exports, module2) {
+  "node_modules/graceful-fs/graceful-fs.js"(exports2, module2) {
     var fs = require("fs");
     var polyfills = require_polyfills();
     var legacy = require_legacy_streams();
@@ -3665,7 +3665,7 @@ var require_graceful_fs = __commonJS({
 
 // node_modules/fs-extra/lib/fs/index.js
 var require_fs = __commonJS({
-  "node_modules/fs-extra/lib/fs/index.js"(exports) {
+  "node_modules/fs-extra/lib/fs/index.js"(exports2) {
     "use strict";
     var u = require_universalify().fromCallback;
     var fs = require_graceful_fs();
@@ -3707,11 +3707,11 @@ var require_fs = __commonJS({
     ].filter((key) => {
       return typeof fs[key] === "function";
     });
-    Object.assign(exports, fs);
+    Object.assign(exports2, fs);
     api.forEach((method) => {
-      exports[method] = u(fs[method]);
+      exports2[method] = u(fs[method]);
     });
-    exports.exists = function(filename, callback) {
+    exports2.exists = function(filename, callback) {
       if (typeof callback === "function") {
         return fs.exists(filename, callback);
       }
@@ -3719,7 +3719,7 @@ var require_fs = __commonJS({
         return fs.exists(filename, resolve);
       });
     };
-    exports.read = function(fd, buffer, offset, length, position, callback) {
+    exports2.read = function(fd, buffer, offset, length, position, callback) {
       if (typeof callback === "function") {
         return fs.read(fd, buffer, offset, length, position, callback);
       }
@@ -3731,7 +3731,7 @@ var require_fs = __commonJS({
         });
       });
     };
-    exports.write = function(fd, buffer, ...args) {
+    exports2.write = function(fd, buffer, ...args) {
       if (typeof args[args.length - 1] === "function") {
         return fs.write(fd, buffer, ...args);
       }
@@ -3743,7 +3743,7 @@ var require_fs = __commonJS({
         });
       });
     };
-    exports.readv = function(fd, buffers, ...args) {
+    exports2.readv = function(fd, buffers, ...args) {
       if (typeof args[args.length - 1] === "function") {
         return fs.readv(fd, buffers, ...args);
       }
@@ -3755,7 +3755,7 @@ var require_fs = __commonJS({
         });
       });
     };
-    exports.writev = function(fd, buffers, ...args) {
+    exports2.writev = function(fd, buffers, ...args) {
       if (typeof args[args.length - 1] === "function") {
         return fs.writev(fd, buffers, ...args);
       }
@@ -3768,7 +3768,7 @@ var require_fs = __commonJS({
       });
     };
     if (typeof fs.realpath.native === "function") {
-      exports.realpath.native = u(fs.realpath.native);
+      exports2.realpath.native = u(fs.realpath.native);
     } else {
       process.emitWarning(
         "fs.realpath.native is not a function. Is fs being monkey-patched?",
@@ -3781,7 +3781,7 @@ var require_fs = __commonJS({
 
 // node_modules/fs-extra/lib/mkdirs/utils.js
 var require_utils = __commonJS({
-  "node_modules/fs-extra/lib/mkdirs/utils.js"(exports, module2) {
+  "node_modules/fs-extra/lib/mkdirs/utils.js"(exports2, module2) {
     "use strict";
     var path = require("path");
     module2.exports.checkPath = function checkPath(pth) {
@@ -3799,7 +3799,7 @@ var require_utils = __commonJS({
 
 // node_modules/fs-extra/lib/mkdirs/make-dir.js
 var require_make_dir = __commonJS({
-  "node_modules/fs-extra/lib/mkdirs/make-dir.js"(exports, module2) {
+  "node_modules/fs-extra/lib/mkdirs/make-dir.js"(exports2, module2) {
     "use strict";
     var fs = require_fs();
     var { checkPath } = require_utils();
@@ -3828,7 +3828,7 @@ var require_make_dir = __commonJS({
 
 // node_modules/fs-extra/lib/mkdirs/index.js
 var require_mkdirs = __commonJS({
-  "node_modules/fs-extra/lib/mkdirs/index.js"(exports, module2) {
+  "node_modules/fs-extra/lib/mkdirs/index.js"(exports2, module2) {
     "use strict";
     var u = require_universalify().fromPromise;
     var { makeDir: _makeDir, makeDirSync } = require_make_dir();
@@ -3847,7 +3847,7 @@ var require_mkdirs = __commonJS({
 
 // node_modules/fs-extra/lib/path-exists/index.js
 var require_path_exists = __commonJS({
-  "node_modules/fs-extra/lib/path-exists/index.js"(exports, module2) {
+  "node_modules/fs-extra/lib/path-exists/index.js"(exports2, module2) {
     "use strict";
     var u = require_universalify().fromPromise;
     var fs = require_fs();
@@ -3863,7 +3863,7 @@ var require_path_exists = __commonJS({
 
 // node_modules/fs-extra/lib/util/utimes.js
 var require_utimes = __commonJS({
-  "node_modules/fs-extra/lib/util/utimes.js"(exports, module2) {
+  "node_modules/fs-extra/lib/util/utimes.js"(exports2, module2) {
     "use strict";
     var fs = require_graceful_fs();
     function utimesMillis(path, atime, mtime, callback) {
@@ -3892,7 +3892,7 @@ var require_utimes = __commonJS({
 
 // node_modules/fs-extra/lib/util/stat.js
 var require_stat = __commonJS({
-  "node_modules/fs-extra/lib/util/stat.js"(exports, module2) {
+  "node_modules/fs-extra/lib/util/stat.js"(exports2, module2) {
     "use strict";
     var fs = require_fs();
     var path = require("path");
@@ -4030,7 +4030,7 @@ var require_stat = __commonJS({
 
 // node_modules/fs-extra/lib/copy/copy.js
 var require_copy = __commonJS({
-  "node_modules/fs-extra/lib/copy/copy.js"(exports, module2) {
+  "node_modules/fs-extra/lib/copy/copy.js"(exports2, module2) {
     "use strict";
     var fs = require_graceful_fs();
     var path = require("path");
@@ -4262,7 +4262,7 @@ var require_copy = __commonJS({
 
 // node_modules/fs-extra/lib/copy/copy-sync.js
 var require_copy_sync = __commonJS({
-  "node_modules/fs-extra/lib/copy/copy-sync.js"(exports, module2) {
+  "node_modules/fs-extra/lib/copy/copy-sync.js"(exports2, module2) {
     "use strict";
     var fs = require_graceful_fs();
     var path = require("path");
@@ -4403,7 +4403,7 @@ var require_copy_sync = __commonJS({
 
 // node_modules/fs-extra/lib/copy/index.js
 var require_copy2 = __commonJS({
-  "node_modules/fs-extra/lib/copy/index.js"(exports, module2) {
+  "node_modules/fs-extra/lib/copy/index.js"(exports2, module2) {
     "use strict";
     var u = require_universalify().fromCallback;
     module2.exports = {
@@ -4415,7 +4415,7 @@ var require_copy2 = __commonJS({
 
 // node_modules/fs-extra/lib/remove/index.js
 var require_remove = __commonJS({
-  "node_modules/fs-extra/lib/remove/index.js"(exports, module2) {
+  "node_modules/fs-extra/lib/remove/index.js"(exports2, module2) {
     "use strict";
     var fs = require_graceful_fs();
     var u = require_universalify().fromCallback;
@@ -4434,7 +4434,7 @@ var require_remove = __commonJS({
 
 // node_modules/fs-extra/lib/empty/index.js
 var require_empty = __commonJS({
-  "node_modules/fs-extra/lib/empty/index.js"(exports, module2) {
+  "node_modules/fs-extra/lib/empty/index.js"(exports2, module2) {
     "use strict";
     var u = require_universalify().fromPromise;
     var fs = require_fs();
@@ -4473,7 +4473,7 @@ var require_empty = __commonJS({
 
 // node_modules/fs-extra/lib/ensure/file.js
 var require_file = __commonJS({
-  "node_modules/fs-extra/lib/ensure/file.js"(exports, module2) {
+  "node_modules/fs-extra/lib/ensure/file.js"(exports2, module2) {
     "use strict";
     var u = require_universalify().fromCallback;
     var path = require("path");
@@ -4543,7 +4543,7 @@ var require_file = __commonJS({
 
 // node_modules/fs-extra/lib/ensure/link.js
 var require_link = __commonJS({
-  "node_modules/fs-extra/lib/ensure/link.js"(exports, module2) {
+  "node_modules/fs-extra/lib/ensure/link.js"(exports2, module2) {
     "use strict";
     var u = require_universalify().fromCallback;
     var path = require("path");
@@ -4612,7 +4612,7 @@ var require_link = __commonJS({
 
 // node_modules/fs-extra/lib/ensure/symlink-paths.js
 var require_symlink_paths = __commonJS({
-  "node_modules/fs-extra/lib/ensure/symlink-paths.js"(exports, module2) {
+  "node_modules/fs-extra/lib/ensure/symlink-paths.js"(exports2, module2) {
     "use strict";
     var path = require("path");
     var fs = require_graceful_fs();
@@ -4694,7 +4694,7 @@ var require_symlink_paths = __commonJS({
 
 // node_modules/fs-extra/lib/ensure/symlink-type.js
 var require_symlink_type = __commonJS({
-  "node_modules/fs-extra/lib/ensure/symlink-type.js"(exports, module2) {
+  "node_modules/fs-extra/lib/ensure/symlink-type.js"(exports2, module2) {
     "use strict";
     var fs = require_graceful_fs();
     function symlinkType(srcpath, type, callback) {
@@ -4729,7 +4729,7 @@ var require_symlink_type = __commonJS({
 
 // node_modules/fs-extra/lib/ensure/symlink.js
 var require_symlink = __commonJS({
-  "node_modules/fs-extra/lib/ensure/symlink.js"(exports, module2) {
+  "node_modules/fs-extra/lib/ensure/symlink.js"(exports2, module2) {
     "use strict";
     var u = require_universalify().fromCallback;
     var path = require("path");
@@ -4816,7 +4816,7 @@ var require_symlink = __commonJS({
 
 // node_modules/fs-extra/lib/ensure/index.js
 var require_ensure = __commonJS({
-  "node_modules/fs-extra/lib/ensure/index.js"(exports, module2) {
+  "node_modules/fs-extra/lib/ensure/index.js"(exports2, module2) {
     "use strict";
     var { createFile, createFileSync } = require_file();
     var { createLink, createLinkSync } = require_link();
@@ -4843,7 +4843,7 @@ var require_ensure = __commonJS({
 
 // node_modules/jsonfile/utils.js
 var require_utils2 = __commonJS({
-  "node_modules/jsonfile/utils.js"(exports, module2) {
+  "node_modules/jsonfile/utils.js"(exports2, module2) {
     function stringify(obj, { EOL = "\n", finalEOL = true, replacer = null, spaces } = {}) {
       const EOF = finalEOL ? EOL : "";
       const str = JSON.stringify(obj, replacer, spaces);
@@ -4860,7 +4860,7 @@ var require_utils2 = __commonJS({
 
 // node_modules/jsonfile/index.js
 var require_jsonfile = __commonJS({
-  "node_modules/jsonfile/index.js"(exports, module2) {
+  "node_modules/jsonfile/index.js"(exports2, module2) {
     var _fs;
     try {
       _fs = require_graceful_fs();
@@ -4933,7 +4933,7 @@ var require_jsonfile = __commonJS({
 
 // node_modules/fs-extra/lib/json/jsonfile.js
 var require_jsonfile2 = __commonJS({
-  "node_modules/fs-extra/lib/json/jsonfile.js"(exports, module2) {
+  "node_modules/fs-extra/lib/json/jsonfile.js"(exports2, module2) {
     "use strict";
     var jsonFile = require_jsonfile();
     module2.exports = {
@@ -4948,7 +4948,7 @@ var require_jsonfile2 = __commonJS({
 
 // node_modules/fs-extra/lib/output-file/index.js
 var require_output_file = __commonJS({
-  "node_modules/fs-extra/lib/output-file/index.js"(exports, module2) {
+  "node_modules/fs-extra/lib/output-file/index.js"(exports2, module2) {
     "use strict";
     var u = require_universalify().fromCallback;
     var fs = require_graceful_fs();
@@ -4990,7 +4990,7 @@ var require_output_file = __commonJS({
 
 // node_modules/fs-extra/lib/json/output-json.js
 var require_output_json = __commonJS({
-  "node_modules/fs-extra/lib/json/output-json.js"(exports, module2) {
+  "node_modules/fs-extra/lib/json/output-json.js"(exports2, module2) {
     "use strict";
     var { stringify } = require_utils2();
     var { outputFile } = require_output_file();
@@ -5004,7 +5004,7 @@ var require_output_json = __commonJS({
 
 // node_modules/fs-extra/lib/json/output-json-sync.js
 var require_output_json_sync = __commonJS({
-  "node_modules/fs-extra/lib/json/output-json-sync.js"(exports, module2) {
+  "node_modules/fs-extra/lib/json/output-json-sync.js"(exports2, module2) {
     "use strict";
     var { stringify } = require_utils2();
     var { outputFileSync } = require_output_file();
@@ -5018,7 +5018,7 @@ var require_output_json_sync = __commonJS({
 
 // node_modules/fs-extra/lib/json/index.js
 var require_json = __commonJS({
-  "node_modules/fs-extra/lib/json/index.js"(exports, module2) {
+  "node_modules/fs-extra/lib/json/index.js"(exports2, module2) {
     "use strict";
     var u = require_universalify().fromPromise;
     var jsonFile = require_jsonfile2();
@@ -5036,7 +5036,7 @@ var require_json = __commonJS({
 
 // node_modules/fs-extra/lib/move/move.js
 var require_move = __commonJS({
-  "node_modules/fs-extra/lib/move/move.js"(exports, module2) {
+  "node_modules/fs-extra/lib/move/move.js"(exports2, module2) {
     "use strict";
     var fs = require_graceful_fs();
     var path = require("path");
@@ -5118,7 +5118,7 @@ var require_move = __commonJS({
 
 // node_modules/fs-extra/lib/move/move-sync.js
 var require_move_sync = __commonJS({
-  "node_modules/fs-extra/lib/move/move-sync.js"(exports, module2) {
+  "node_modules/fs-extra/lib/move/move-sync.js"(exports2, module2) {
     "use strict";
     var fs = require_graceful_fs();
     var path = require("path");
@@ -5174,7 +5174,7 @@ var require_move_sync = __commonJS({
 
 // node_modules/fs-extra/lib/move/index.js
 var require_move2 = __commonJS({
-  "node_modules/fs-extra/lib/move/index.js"(exports, module2) {
+  "node_modules/fs-extra/lib/move/index.js"(exports2, module2) {
     "use strict";
     var u = require_universalify().fromCallback;
     module2.exports = {
@@ -5186,7 +5186,7 @@ var require_move2 = __commonJS({
 
 // node_modules/fs-extra/lib/index.js
 var require_lib = __commonJS({
-  "node_modules/fs-extra/lib/index.js"(exports, module2) {
+  "node_modules/fs-extra/lib/index.js"(exports2, module2) {
     "use strict";
     module2.exports = {
       // Export promiseified graceful-fs:
@@ -5222,56 +5222,8 @@ var {
   Help
 } = import_index.default;
 
-// src/models/template/component.ts
-var ComponentStructure = {
-  name: "SimpleComponent",
-  root: {
-    type: "Folder" /* Folder */,
-    elementProps: { name: "fileName" },
-    elements: [
-      {
-        type: "File" /* File */,
-        elementProps: {
-          name: "main.{extension}.tsx",
-          extension: "component",
-          content: `
-          import React, {FC} from "react"
-          import useStyles from "./styles.ts"
-          type Props = {}
-          const MainComponent:FC<Props>  = (props) => {
-            const styles = useStyles()
-            return <div className={styles.mainComponentContainer}><div>
-          }
-          `
-        }
-      },
-      {
-        type: "File" /* File */,
-        elementProps: {
-          name: "styles.ts",
-          extension: "styles",
-          content: `
-          const useStyles = () => {mainComponentContainer: {}}
-          `
-        }
-      },
-      {
-        type: "Folder" /* Folder */,
-        elementProps: { name: "text-files" },
-        elements: [
-          {
-            type: "File" /* File */,
-            elementProps: {
-              name: "index.txt",
-              content: `I don't really know what content`
-            }
-          }
-        ]
-      }
-    ]
-  }
-};
-var component_default = ComponentStructure;
+// src/index.ts
+var import_fs_extra2 = __toESM(require_lib());
 
 // src/models/promise-tree/createElementPromise.ts
 var import_fs_extra = __toESM(require_lib());
@@ -5335,16 +5287,60 @@ function resolvePromiseTree(tree) {
 }
 
 // src/actions/make.ts
-function makeAction(path) {
+function make(config, path) {
   return __async(this, null, function* () {
-    const promises = buildPromiseTree(component_default.root, path);
-    resolvePromiseTree(promises);
+    const promises = buildPromiseTree(config.root, path);
+    try {
+      yield resolvePromiseTree(promises);
+    } catch (error) {
+    }
   });
 }
-var make_default = makeAction;
+var make_default = make;
+
+// src/models/template/component.ts
+var defaultTemplate = {
+  name: "SimpleComponent",
+  root: {
+    type: "Folder" /* Folder */,
+    elementProps: { name: "fileName" },
+    elements: [
+      {
+        type: "File" /* File */,
+        elementProps: {
+          name: "main.{extension}.tsx",
+          extension: "component",
+          content: ``
+        }
+      },
+      {
+        type: "File" /* File */,
+        elementProps: {
+          name: "styles.ts",
+          extension: "styles",
+          content: ``
+        }
+      }
+    ]
+  }
+};
+var component_default = defaultTemplate;
 
 // src/index.ts
-program.version("1.0.1").command("make <path>").description("Make a folder using template").option("-t, --template").parse(process.argv).action((path) => make_default("./" + path));
+program.command("make").argument("<path>", "The path at which you want to generate files").option("-c, --config <string>", "The name of the template you want to use").option("-f, --filename <string>", "The name that will be applied in the {fileName} handlebar").description("Generates files based on specified file-config").action((path, argv) => __async(exports, null, function* () {
+  try {
+    const templatesList = yield (0, import_fs_extra2.readJSON)(
+      path + "/unq.config.json"
+    );
+    let template = component_default;
+    if (argv.config && templatesList.hasOwnProperty(argv.config))
+      template = templatesList[argv.config];
+    if (argv.fileName)
+      template.fileName = argv.fileName;
+    make_default(template, "./" + path);
+  } catch (error) {
+  }
+}));
 program.parse();
 var options = program.opts();
 if (!process.argv.slice(2).length) {

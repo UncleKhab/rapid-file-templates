@@ -37,6 +37,7 @@
     "@types/fs-extra": "^11.0.1",
     "commander": "^10.0.0",
     "fs-extra": "^11.1.0",
-    "unqueue-cli": "^1.0.12"
+    "unqueue-cli": "^1.0.12",
+    "util": "^0.12.5"
   }
 }
