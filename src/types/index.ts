@@ -1,4 +1,4 @@
 export type MergeField = {
   label: string;
-  value: string;
+  value?: string;
 };

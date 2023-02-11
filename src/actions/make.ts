@@ -1,7 +1,8 @@
 import { buildPromiseTree, resolvePromiseTree } from "../models/promise-tree/promise-tree";
-import { TemplateStructure } from "../models/template/template";
+import { templateState } from "..";
 
-async function make(config: TemplateStructure, path: string) {
+async function make(path: string) {
+  const config = templateState.getState();
   const promises = buildPromiseTree(config.root, path);
   try {
     await resolvePromiseTree(promises);

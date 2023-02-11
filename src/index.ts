@@ -1,9 +1,11 @@
 #! /usr/bin/env node
 import { program } from "commander";
-import { readJSON } from "fs-extra";
+import inquirer from "inquirer";
 import makeAction from "./actions/make";
-import defaultTemplate from "./models/template/component";
-import { TemplateStructure } from "./models/template/template";
+import { loadTemplatesFile } from "./models/template/template";
+import createTemplateState from "./state/createTemplateState";
+
+export const templateState = createTemplateState(null);
 
 program
   .command("make")
@@ -13,15 +15,11 @@ program
   .description("Generates files based on specified file-config")
   .action(async (path, argv) => {
     try {
-      const templatesList: Record<string, TemplateStructure> = await readJSON(
-        path + "/unq.config.json"
-      );
-      let template: TemplateStructure = defaultTemplate;
-      if (argv.config && templatesList.hasOwnProperty(argv.config))
-        template = templatesList[argv.config];
-      if (argv.fileName) template.fileName = argv.fileName;
+      const template = await loadTemplatesFile(argv);
+      if (!template) throw new Error(`404 - ${argv.config} not found`);
 
-      makeAction(template as TemplateStructure, "./" + path);
+      templateState.setState(template);
+      makeAction("./" + path);
     } catch (error) {
       // TODO -> Error handler
     }

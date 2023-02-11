@@ -1,6 +1,7 @@
 {
   "component-template": {
     "name": "SimpleComponent",
+    "mergeFields": [{ "label": "{fileName}" }],
     "root": {
       "type": "Folder",
       "elementProps": { "name": "fileName" },
