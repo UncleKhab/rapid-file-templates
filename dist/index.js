@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 "use strict";
 var __create = Object.create;
 var __defProp = Object.defineProperty;
@@ -5221,16 +5222,16 @@ var {
   Help
 } = import_index.default;
 
-// src/dummy_data/component.ts
+// src/models/template/component.ts
 var ComponentStructure = {
   name: "SimpleComponent",
   root: {
     type: "Folder" /* Folder */,
-    folderProps: { name: "fileName" },
+    elementProps: { name: "fileName" },
     elements: [
       {
         type: "File" /* File */,
-        fileProps: {
+        elementProps: {
           name: "main.{extension}.tsx",
           extension: "component",
           content: `
@@ -5246,7 +5247,7 @@ var ComponentStructure = {
       },
       {
         type: "File" /* File */,
-        fileProps: {
+        elementProps: {
           name: "styles.ts",
           extension: "styles",
           content: `
@@ -5256,11 +5257,11 @@ var ComponentStructure = {
       },
       {
         type: "Folder" /* Folder */,
-        folderProps: { name: "text-files" },
+        elementProps: { name: "text-files" },
         elements: [
           {
             type: "File" /* File */,
-            fileProps: {
+            elementProps: {
               name: "index.txt",
               content: `I don't really know what content`
             }
@@ -5272,61 +5273,78 @@ var ComponentStructure = {
 };
 var component_default = ComponentStructure;
 
-// src/helpers/writeFilePromise.ts
+// src/models/promise-tree/createElementPromise.ts
 var import_fs_extra = __toESM(require_lib());
-var writeFilePromise = (element, path) => {
-  const { fileProps } = element;
-  if (!fileProps)
+var createElementPromise = (element, path) => {
+  const { elementProps } = element;
+  if (!elementProps)
     return null;
-  let name = (fileProps == null ? void 0 : fileProps.name) || "";
-  const { content = "", extension = "" } = fileProps;
+  let name = (elementProps == null ? void 0 : elementProps.name) || "";
+  const { content = "", extension = "" } = elementProps;
   if (extension) {
     name = name == null ? void 0 : name.replace(/{extension}/g, extension);
   }
-  return () => (0, import_fs_extra.writeFile)(`${path}/${name}`, content);
-};
-var writeFilePromise_default = writeFilePromise;
-
-// src/helpers/writeFolderPromise.ts
-var import_fs_extra2 = __toESM(require_lib());
-var writeFolderPromise = (element, path) => {
-  const { folderProps } = element;
-  if (!folderProps)
-    return null;
-  const { name } = folderProps;
-  return () => (0, import_fs_extra2.ensureDir)(`${path}/${name}`);
-};
-var writeFolderPromise_default = writeFolderPromise;
-
-// src/actions/make.ts
-function reccuriveBuildElementPromises(element, path) {
   switch (element.type) {
     case "File" /* File */:
-      return { current: writeFilePromise_default(element, path) };
+      return () => (0, import_fs_extra.writeFile)(`${path}/${name}`, content);
+    case "Folder" /* Folder */:
+      return () => (0, import_fs_extra.ensureDir)(`${path}/${name}`);
+  }
+};
+var createElementPromise_default = createElementPromise;
+
+// src/models/promise-tree/promise-tree.ts
+function buildPromiseTree(element, path) {
+  if (!element)
+    return null;
+  const currentElement = createElementPromise_default(element, path);
+  switch (element.type) {
+    case "File" /* File */:
+      return { promise: currentElement };
     case "Folder" /* Folder */:
       let elements = [];
       if (element.elements) {
         elements = element.elements.map(
           (item) => {
             var _a;
-            return reccuriveBuildElementPromises(item, `${path}/${(_a = element.folderProps) == null ? void 0 : _a.name}`);
+            return buildPromiseTree(item, `${path}/${(_a = element.elementProps) == null ? void 0 : _a.name}`);
           }
         );
       }
-      const currentPromise = writeFolderPromise_default(element, path);
-      return { current: currentPromise, rest: elements };
+      return { promise: currentElement, rest: elements };
   }
 }
+function resolvePromiseTree(tree) {
+  return __async(this, null, function* () {
+    var _a, _b;
+    if (!tree)
+      return 404;
+    try {
+      if (!tree.rest) {
+        yield (_a = tree.promise) == null ? void 0 : _a.call(tree);
+        return;
+      }
+      yield (_b = tree.promise) == null ? void 0 : _b.call(tree);
+      tree.rest.forEach((branch) => __async(this, null, function* () {
+        !!branch && (yield resolvePromiseTree(branch));
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  });
+}
+
+// src/actions/make.ts
 function makeAction(path) {
   return __async(this, null, function* () {
-    const promises = reccuriveBuildElementPromises(component_default.root, path);
-    console.log(path);
+    const promises = buildPromiseTree(component_default.root, path);
+    resolvePromiseTree(promises);
   });
 }
 var make_default = makeAction;
 
 // src/index.ts
-program.version("1.0.1").command("make <path>").description("Make a folder using template").option("-t, --template").parse(process.argv).action((path) => make_default(path));
+program.version("1.0.1").command("make <path>").description("Make a folder using template").option("-t, --template").parse(process.argv).action((path) => make_default("./" + path));
 program.parse();
 var options = program.opts();
 if (!process.argv.slice(2).length) {

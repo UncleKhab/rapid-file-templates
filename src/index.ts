@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import { program } from "commander";
 import makeAction from "./actions/make";
 
@@ -7,7 +8,7 @@ program
   .description("Make a folder using template")
   .option("-t, --template")
   .parse(process.argv)
-  .action((path) => makeAction(path));
+  .action((path) => makeAction("./" + path));
 
 program.parse();
 

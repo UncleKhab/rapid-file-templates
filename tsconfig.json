@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist",
+    "module": "AMD",
     "strict": true,
     "target": "es6",
-    "module": "commonjs",
     "sourceMap": true,
     "esModuleInterop": true,
-    "moduleResolution": "node"
-  }
+    "moduleResolution": "node",
+    "declaration": true,
+    "allowJs": true
+  },
+  "include": ["./**/*"],
+  "types": [],
+  "exclude": ["./dist/**/*", "node_modules"]
 }

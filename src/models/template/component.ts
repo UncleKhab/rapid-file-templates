@@ -1,14 +1,15 @@
-import { ElementType, TemplateStructure } from "../@types";
+import { TemplateStructure } from "./template";
+import { TemplateElementTypes } from "./template-element";
 
 const ComponentStructure: TemplateStructure = {
   name: "SimpleComponent",
   root: {
-    type: ElementType.Folder,
-    folderProps: { name: "fileName" },
+    type: TemplateElementTypes.Folder,
+    elementProps: { name: "fileName" },
     elements: [
       {
-        type: ElementType.File,
-        fileProps: {
+        type: TemplateElementTypes.File,
+        elementProps: {
           name: "main.{extension}.tsx",
           extension: "component",
           content: `
@@ -23,8 +24,8 @@ const ComponentStructure: TemplateStructure = {
         },
       },
       {
-        type: ElementType.File,
-        fileProps: {
+        type: TemplateElementTypes.File,
+        elementProps: {
           name: "styles.ts",
           extension: "styles",
           content: `
@@ -33,12 +34,12 @@ const ComponentStructure: TemplateStructure = {
         },
       },
       {
-        type: ElementType.Folder,
-        folderProps: { name: "text-files" },
+        type: TemplateElementTypes.Folder,
+        elementProps: { name: "text-files" },
         elements: [
           {
-            type: ElementType.File,
-            fileProps: {
+            type: TemplateElementTypes.File,
+            elementProps: {
               name: "index.txt",
               content: `I don't really know what content`,
             },
