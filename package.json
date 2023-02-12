@@ -1,6 +1,6 @@
 {
   "name": "unqueue-cli",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Utilities CLI tool for ramping up development",
   "main": "./dist/index.js",
   "types": "./dist/unqueue-cli.d.ts",
@@ -41,6 +41,7 @@
     "fs-extra": "^11.1.0",
     "inquirer": "^9.1.4",
     "prettier": "^2.8.4",
+    "unqueue-cli": "^1.0.14",
     "util": "^0.12.5"
   }
 }

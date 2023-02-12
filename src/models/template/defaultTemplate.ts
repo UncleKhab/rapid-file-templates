@@ -11,7 +11,7 @@ const defaultTemplate: TemplateStructure = {
         type: TemplateElementTypes.File,
         elementProps: {
           name: "default.tsx",
-          content: ``,
+          content: [``],
         },
       },
     ],
