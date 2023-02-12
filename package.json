@@ -1,6 +1,6 @@
 {
   "name": "unqueue-cli",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Utilities CLI tool for ramping up development",
   "main": "./dist/index.js",
   "types": "./dist/unqueue-cli.d.ts",

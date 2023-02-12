@@ -15,6 +15,7 @@
           "type": "File",
           "elementProps": {
             "name": "[#fileName#].tsx",
+            "parser": "babel-ts",
             "content": [
               "import {FC} from 'react'",
               "import useStyles from './styles.ts'",
@@ -25,16 +26,15 @@
               "const styles = useStyles({theme})",
               "return <div className={styles.[#componentName#]Container}></div>",
               "}"
-            ],
-            "parser": "babel-ts"
+            ]
           }
         },
         {
           "type": "File",
           "elementProps": {
             "name": "styles.css",
-            "content": [".[#className#] {", "border-radius: 12px;", "}"],
-            "parser": "css"
+            "parser": "css",
+            "content": [".[#className#] {", "border-radius: 12px;", "}"]
           }
         }
       ]

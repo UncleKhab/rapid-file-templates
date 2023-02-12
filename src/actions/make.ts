@@ -12,6 +12,7 @@ async function make(path: string) {
     // TODO this does not wait
   } catch (error) {
     // TODO -> Error handler
+    console.log(error);
   }
 }
 
