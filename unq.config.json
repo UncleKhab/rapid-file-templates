@@ -1,17 +1,26 @@
 {
   "component-template": {
     "name": "SimpleComponent",
-    "mergeFields": [{ "label": "{fileName}" }],
+    "mergeFields": [{ "label": "[#fileName#]" }, { "label": "[#componentName#]" }],
     "root": {
       "type": "Folder",
-      "elementProps": { "name": "fileName" },
+      "elementProps": { "name": "[#fileName#]" },
       "elements": [
         {
           "type": "File",
           "elementProps": {
-            "name": "main.{extension}.tsx",
-            "extension": "component",
-            "content": "Some Content"
+            "name": "[#fileName#].tsx",
+            "content": [
+              "import {FC} from 'react'",
+              "import useStyles from './styles.ts'",
+              "import {useTheme} from 'injectors/theme'",
+              "type Props = {}",
+              "const [#componentName#]:FC<Props> = (props) => {",
+              "const theme = useTheme()",
+              "const styles = useStyles({theme})",
+              "return <div className={styles.[#componentName#]Container}></div>",
+              "}"
+            ]
           }
         },
         {
@@ -19,21 +28,8 @@
           "elementProps": {
             "name": "styles.ts",
             "extension": "styles",
-            "content": ""
+            "content": ["const useStyles = (theme) => {}"]
           }
-        },
-        {
-          "type": "Folder",
-          "elementProps": { "name": "text-files" },
-          "elements": [
-            {
-              "type": "File",
-              "elementProps": {
-                "name": "index.txt",
-                "content": "I don't really know what content"
-              }
-            }
-          ]
         }
       ]
     }

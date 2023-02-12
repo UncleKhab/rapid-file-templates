@@ -11,6 +11,5 @@ export interface TemplateElement {
 
 export type TemplateElementProps = {
   name: string;
-  extension?: string;
-  content?: string;
+  content?: string[];
 };
