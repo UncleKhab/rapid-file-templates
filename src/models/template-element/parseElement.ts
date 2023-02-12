@@ -1,6 +1,6 @@
-import { TemplateElement, TemplateElementProps } from "../template/template-element";
+import { TemplateElement, TemplateElementProps } from "./types";
 import { templateState } from "../..";
-import replaceMergeFields from "../../helpers/replaceMergeFields";
+import replaceMergeFields from "../merge-field/replaceMergeFields";
 import prettier from "prettier";
 
 export default function parseElement(element: TemplateElement) {

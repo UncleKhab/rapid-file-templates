@@ -1,4 +1,4 @@
-import { MergeField } from "../types";
+import { MergeField } from "./types";
 
 const replaceMergeFields = (value: string, mergeFields: MergeField[]) => {
   let newVal = value;

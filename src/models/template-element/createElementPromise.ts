@@ -1,5 +1,5 @@
 import { ensureDir, writeFile } from "fs-extra";
-import { TemplateElement, TemplateElementTypes } from "../template/template-element";
+import { TemplateElement, TemplateElementTypes } from "./types";
 
 const createElementPromise = (
   element: TemplateElement,

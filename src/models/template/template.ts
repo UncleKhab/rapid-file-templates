@@ -1,7 +1,7 @@
 import { readJSON } from "fs-extra";
-import { MergeField } from "../../types";
+import { MergeField } from "models/merge-field/types";
 import defaultTemplate from "./defaultTemplate";
-import { TemplateElement } from "./template-element";
+import { TemplateElement } from "../template-element/types";
 import inquirer, { InputQuestion } from "inquirer";
 
 export type TemplateStructure = {

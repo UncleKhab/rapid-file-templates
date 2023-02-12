@@ -1,5 +1,6 @@
-import { buildPromiseTree, resolvePromiseTree } from "../models/promise-tree/promise-tree";
-import { templateState } from "..";
+import buildPromiseTree from "models/promise-tree/buildPromiseTree";
+import { templateState } from "index";
+import resolvePromiseTree from "models/promise-tree/resolvePromiseTree";
 
 async function make(path: string) {
   const config = templateState.getState();

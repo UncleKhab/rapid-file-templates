@@ -1,5 +1,5 @@
 import { TemplateStructure } from "./template";
-import { TemplateElementTypes } from "./template-element";
+import { TemplateElementTypes } from "../template-element/types";
 
 const defaultTemplate: TemplateStructure = {
   name: "SimpleComponent",
