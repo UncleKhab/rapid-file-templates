@@ -11,7 +11,7 @@
     "allowJs": true,
     "lib": ["ES2021.String"]
   },
-  "include": ["./**/*"],
+
   "types": [],
-  "exclude": ["./dist/**/*", "./node_modules/**/*", "fileName"]
+  "exclude": ["./dist/**/*", "./node_modules/**/*", "fileName", "buildProject.mjs"]
 }

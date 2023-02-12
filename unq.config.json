@@ -1,5 +1,5 @@
 {
-  "component-template": {
+  "component": {
     "name": "SimpleComponent",
     "mergeFields": [{ "label": "[#fileName#]" }, { "label": "[#componentName#]" }],
     "root": {

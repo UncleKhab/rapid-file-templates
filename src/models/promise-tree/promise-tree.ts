@@ -1,4 +1,5 @@
 import createElementPromise from "../element/createElementPromise";
+import parseElement from "../element/parseElement";
 import { TemplateElement, TemplateElementTypes } from "../template/template-element";
 
 export type PromiseTree = {
@@ -9,18 +10,19 @@ export type PromiseTree = {
 function buildPromiseTree(element: TemplateElement, path: string): PromiseTree | null {
   if (!element) return null;
 
-  const currentElement = createElementPromise(element, path);
+  const parsedElement = parseElement(element);
+  const currentPromise = createElementPromise(parsedElement, path);
   switch (element.type) {
     case TemplateElementTypes.File:
-      return { promise: currentElement };
+      return { promise: currentPromise };
     case TemplateElementTypes.Folder:
       let elements: (PromiseTree | null)[] = [];
-      if (element.elements) {
-        elements = element.elements.map((item) =>
-          buildPromiseTree(item, `${path}/${element.elementProps?.name}`)
+      if (parsedElement.elements) {
+        elements = parsedElement.elements.map((item) =>
+          buildPromiseTree(item, `${path}/${parsedElement.elementProps?.name}`)
         );
       }
-      return { promise: currentElement, rest: elements };
+      return { promise: currentPromise, rest: elements };
   }
 }
 
@@ -36,7 +38,7 @@ async function resolvePromiseTree(tree: PromiseTree | null) {
       !!branch && (await resolvePromiseTree(branch));
     });
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 }
 

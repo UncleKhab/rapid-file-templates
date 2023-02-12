@@ -1,5 +1,4 @@
 import { ensureDir, writeFile } from "fs-extra";
-import parseElement from "./parseElement";
 import { TemplateElement, TemplateElementTypes } from "../template/template-element";
 
 const createElementPromise = (
@@ -9,9 +8,8 @@ const createElementPromise = (
   const { elementProps } = element;
   if (!elementProps) return null;
 
-  const parsedElement = parseElement(element);
-  const { content = "" } = parsedElement.elementProps;
-  let name = parsedElement.elementProps.name || "";
+  const { content = "" } = element.elementProps;
+  let name = element.elementProps.name || "";
 
   switch (element.type) {
     case TemplateElementTypes.File:
