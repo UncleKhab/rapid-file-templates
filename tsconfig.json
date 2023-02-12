@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "rootDir": "src",
+    "outDir": "dist",
     "module": "AMD",
     "strict": true,
     "target": "es6",

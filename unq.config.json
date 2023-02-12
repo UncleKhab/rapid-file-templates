@@ -1,7 +1,12 @@
 {
   "component": {
     "name": "SimpleComponent",
-    "mergeFields": [{ "label": "[#fileName#]" }, { "label": "[#componentName#]" }],
+    "mergeFields": [
+      { "label": "[#fileName#]" },
+      { "label": "[#componentName#]" },
+      { "label": "[#className#]" }
+    ],
+    "enablePrettier": true,
     "root": {
       "type": "Folder",
       "elementProps": { "name": "[#fileName#]" },
@@ -20,15 +25,16 @@
               "const styles = useStyles({theme})",
               "return <div className={styles.[#componentName#]Container}></div>",
               "}"
-            ]
+            ],
+            "parser": "babel-ts"
           }
         },
         {
           "type": "File",
           "elementProps": {
-            "name": "styles.ts",
-            "extension": "styles",
-            "content": ["const useStyles = (theme) => {}"]
+            "name": "styles.css",
+            "content": [".[#className#] {", "border-radius: 12px;", "}"],
+            "parser": "css"
           }
         }
       ]

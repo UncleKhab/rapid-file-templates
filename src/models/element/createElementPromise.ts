@@ -13,9 +13,15 @@ const createElementPromise = (
 
   switch (element.type) {
     case TemplateElementTypes.File:
-      return () => writeFile(`${path}/${name}`, content[0]);
+      return () => {
+        console.log(`Generated file ${name} at ${path}`);
+        return writeFile(`${path}/${name}`, content[0]);
+      };
     case TemplateElementTypes.Folder:
-      return () => ensureDir(`${path}/${name}`);
+      return () => {
+        console.log(`Generated folder ${name} at ${path}`);
+        return ensureDir(`${path}/${name}`);
+      };
   }
 };
 

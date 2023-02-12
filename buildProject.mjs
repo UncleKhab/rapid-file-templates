@@ -6,5 +6,5 @@ await esbuild.build({
   outdir: "dist",
   platform: "node",
   minify: true,
-  //   packages: "external",
+  packages: "external",
 });
