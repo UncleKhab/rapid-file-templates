@@ -7,6 +7,7 @@ import inquirer, { InputQuestion } from "inquirer";
 export type TemplateStructure = {
   name: string;
   root: TemplateElement;
+  enablePrettier?: boolean;
   fileName?: string;
   mergeFields?: MergeField[];
 };

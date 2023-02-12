@@ -1,1 +1,0 @@
-import {FC} from 'react',import useStyles from './styles.ts',import {useTheme} from 'injectors/theme',type Props = {},const :FC<Props> = (props) => {,const theme = useTheme(),const styles = useStyles({theme}),return <div className={styles.[#componentName#]Container}></div>,}

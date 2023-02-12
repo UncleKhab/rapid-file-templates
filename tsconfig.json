@@ -13,5 +13,5 @@
   },
   "include": ["./**/*"],
   "types": [],
-  "exclude": ["./dist/**/*", "node_modules", "fileName"]
+  "exclude": ["./dist/**/*", "./node_modules/**/*", "fileName"]
 }

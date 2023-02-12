@@ -1,4 +1,4 @@
-import createElementPromise from "./createElementPromise";
+import createElementPromise from "../element/createElementPromise";
 import { TemplateElement, TemplateElementTypes } from "../template/template-element";
 
 export type PromiseTree = {
