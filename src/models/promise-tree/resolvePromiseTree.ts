@@ -8,10 +8,10 @@ export default async function resolvePromiseTree(tree: PromiseTree | null) {
       return;
     }
     await tree.promise?.();
-    console.log("finished promise");
     tree.rest.forEach(async (branch) => {
       !!branch && (await resolvePromiseTree(branch));
     });
+    return true;
   } catch (error) {
     //console.log(error);
   }

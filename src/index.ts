@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 import { program } from "commander";
+import { logSuccess } from "helpers/messages";
 import makeAction from "./actions/make";
 import { loadTemplatesFile } from "./models/template/template";
 import createTemplateState from "./state/createTemplateState";
@@ -17,7 +18,7 @@ program
       const template = await loadTemplatesFile(argv);
       if (!template) throw new Error(`404 - ${argv.config} not found`);
       templateState.setState(template);
-      makeAction("./" + path);
+      await makeAction("./" + path);
     } catch (error) {
       // TODO -> Error handler
     }

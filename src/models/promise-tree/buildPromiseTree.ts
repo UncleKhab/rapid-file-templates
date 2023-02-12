@@ -5,12 +5,13 @@ import { PromiseTree } from "./types";
 
 export default function buildPromiseTree(
   element: TemplateElement,
-  path: string
+  path: string,
+  indent: number = 2
 ): PromiseTree | null {
   if (!element) return null;
 
   const parsedElement = parseElement(element);
-  const currentPromise = createElementPromise(parsedElement, path);
+  const currentPromise = createElementPromise(parsedElement, path, indent);
   switch (element.type) {
     case TemplateElementTypes.File:
       return { promise: currentPromise };
@@ -18,7 +19,7 @@ export default function buildPromiseTree(
       let elements: (PromiseTree | null)[] = [];
       if (parsedElement.elements) {
         elements = parsedElement.elements.map((item) =>
-          buildPromiseTree(item, `${path}/${parsedElement.elementProps?.name}`)
+          buildPromiseTree(item, `${path}/${parsedElement.elementProps?.name}`, indent + 2)
         );
       }
       return { promise: currentPromise, rest: elements };
