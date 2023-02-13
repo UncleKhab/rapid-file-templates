@@ -36,7 +36,10 @@ export async function loadTemplatesFile(argv: any) {
             type: "input",
           };
           const response = await inquirer.prompt([question]).then((data) => data.response);
-          currentMergeField.value = response;
+          if (response) {
+            currentMergeField.value = response;
+          }
+
           populatedMergeFields.push(currentMergeField);
         }
       } catch (error) {

@@ -24,7 +24,6 @@
     "clitool",
     "typescript"
   ],
-  "type": "module",
   "author": "Stefan Cojocaru",
   "license": "MIT",
   "bugs": {

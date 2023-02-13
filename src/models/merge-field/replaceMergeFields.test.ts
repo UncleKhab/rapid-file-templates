@@ -13,12 +13,12 @@ describe("replaceMergeFields", () => {
     expect(result).toBe("Hello, John! How are you doing today?");
   });
 
-  it("replaces all instances of the merge field label with an empty string if its value is not provided", () => {
+  it("replaces all instances of the merge field label will stay the same if its value is not provided", () => {
     const value = "Hello, {{Name}}! How are you doing {{today}}?";
     const mergeFields = [{ label: "{{Name}}" }, { label: "{{today}}" }];
     const result = replaceMergeFields(value, mergeFields);
 
-    expect(result).toBe("Hello, ! How are you doing ?");
+    expect(result).toBe("Hello, {{Name}}! How are you doing {{today}}?");
   });
 
   it("returns the original value if the merge fields array is empty", () => {
