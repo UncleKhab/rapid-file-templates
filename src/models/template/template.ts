@@ -20,8 +20,8 @@ export async function loadTemplatesFile(argv: any) {
     let template: TemplateStructure = defaultTemplate;
 
     // ARGV APPLICATION
-    if (argv.config && templatesList.hasOwnProperty(argv.config))
-      template = templatesList[argv.config];
+    if (argv.template && templatesList.hasOwnProperty(argv.template))
+      template = templatesList[argv.template];
     if (argv.fileName) template.fileName = argv.fileName;
 
     // LOADING THE MERGEFIELDS
