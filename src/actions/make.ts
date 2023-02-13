@@ -1,8 +1,8 @@
-import { logError, logHeader, logSuccess } from "helpers/messages";
-import parsePath from "helpers/parsePath";
-import { templateState } from "index";
-import buildPromiseTree from "models/promise-tree/buildPromiseTree";
-import resolvePromiseTree from "models/promise-tree/resolvePromiseTree";
+import { templateState } from "..";
+import { logHeader, logSuccess } from "../helpers/messages";
+import parsePath from "../helpers/parsePath";
+import buildPromiseTree from "../models/promise-tree/buildPromiseTree";
+import resolvePromiseTree from "../models/promise-tree/resolvePromiseTree";
 
 async function make(path: string) {
   const config = templateState.getState();

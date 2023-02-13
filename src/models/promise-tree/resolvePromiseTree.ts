@@ -1,5 +1,4 @@
-import { UnqError } from "helpers/errors";
-import { logError } from "helpers/messages";
+import { UnqError } from "../../helpers/errors";
 import { PromiseTree } from "./types";
 
 // Resolve the tree from root to leafs
@@ -9,7 +8,7 @@ import { PromiseTree } from "./types";
 
 // I've used a classic for loop because of the need to "await"
 
-const COMPLETED_TO_SOLVE_MESSAGE: UnqError = {
+export const COMPLETED_TO_SOLVE_MESSAGE: UnqError = {
   status: 203,
   message: "Genenarated template at path",
 };
@@ -32,7 +31,10 @@ export default async function resolvePromiseTree(tree: PromiseTree | null) {
       }
     }
   } catch (error: any) {
-    return { status: 500, message: error.message ? error.message : `${tree.failMessage}` };
+    if (error && error.message) {
+      return { status: 500, message: error.message };
+    }
+    return { status: 500, message: `${tree.failMessage}` };
   }
   return COMPLETED_TO_SOLVE_MESSAGE;
 }

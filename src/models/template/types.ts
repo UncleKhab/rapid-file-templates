@@ -1,5 +1,5 @@
-import { TemplateElement } from "models/template-element/types";
-import { MergeField } from "models/merge-field/types";
+import { MergeField } from "../merge-field/types";
+import { TemplateElement } from "../template-element/types";
 
 export type TemplateStructure = {
   name: string;

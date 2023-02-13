@@ -1,7 +1,8 @@
 #! /usr/bin/env node
 import { program } from "commander";
-import { logError } from "helpers/messages";
+
 import makeAction from "./actions/make";
+import { logError } from "./helpers/messages";
 import { loadTemplatesFile } from "./models/template/template";
 import createTemplateState from "./state/createTemplateState";
 

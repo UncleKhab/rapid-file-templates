@@ -1,6 +1,6 @@
 import { ensureDir, writeFile } from "fs-extra";
+import { logFileReject, logFileSuccess } from "../../helpers/messages";
 import { TemplateElement, TemplateElementTypes } from "./types";
-import { logFileReject, logFileSuccess } from "helpers/messages";
 
 const createElementPromise = (
   element: TemplateElement,
