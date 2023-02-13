@@ -30,8 +30,12 @@ export async function loadTemplatesFile(argv: any) {
       try {
         for (let i = 0; i < template.mergeFields?.length; i++) {
           const currentMergeField = template.mergeFields[i];
+          let questionMessage = `Value for ${currentMergeField.label}:`;
+          if (currentMergeField.defaultValue) {
+            questionMessage = `default: ${currentMergeField.defaultValue} ` + questionMessage;
+          }
           const question: InputQuestion = {
-            message: `Value for ${currentMergeField.label}:`,
+            message: questionMessage,
             name: `response`,
             type: "input",
           };
