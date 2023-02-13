@@ -16,7 +16,8 @@
     "./node_modules/**/*",
     "fileName",
     "esbuild.mjs",
-    "jest.config.js",
-    "testingstuff"
+    "jest.config.cjs",
+    "testingstuff",
+    "src/**/*.spec.ts"
   ]
 }
