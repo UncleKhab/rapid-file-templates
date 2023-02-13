@@ -1,6 +1,7 @@
 import { ensureDir, writeFile } from "fs-extra";
 import { TemplateElement, TemplateElementTypes } from "./types";
 import { logFileReject, logFileSuccess } from "helpers/messages";
+
 const createElementPromise = (
   element: TemplateElement,
   path: string,
@@ -14,23 +15,31 @@ const createElementPromise = (
 
   switch (element.type) {
     case TemplateElementTypes.File:
-      return async () => {
-        try {
-          await writeFile(`${path}/${name}`, content[0]);
-          logFileSuccess(name, indent);
-        } catch (error) {
-          logFileReject(name, indent);
-        }
-      };
+      return async () =>
+        new Promise((resolve, reject) => {
+          writeFile(`${path}/${name}`, content[0])
+            .then(() => {
+              logFileSuccess(name, indent);
+              resolve(true);
+            })
+            .catch((error) => {
+              logFileReject(name, indent);
+              reject(error);
+            });
+        });
     case TemplateElementTypes.Folder:
-      return async () => {
-        try {
-          await ensureDir(`${path}/${name}`);
-          logFileSuccess(name, indent);
-        } catch (error) {
-          logFileReject(name, indent);
-        }
-      };
+      return async () =>
+        new Promise((resolve, reject) => {
+          ensureDir(`${path}/${name}`)
+            .then(() => {
+              logFileSuccess(name, indent);
+              resolve(true);
+            })
+            .catch((error) => {
+              logFileReject(name, indent);
+              reject(error);
+            });
+        });
   }
 };
 

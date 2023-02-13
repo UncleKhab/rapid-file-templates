@@ -15,5 +15,5 @@
   },
 
   "types": [],
-  "exclude": ["./dist/**/*", "./node_modules/**/*", "fileName", "buildProject.mjs"]
+  "exclude": ["./dist/**/*", "./node_modules/**/*", "fileName", "buildProject.mjs", "testingstuff"]
 }

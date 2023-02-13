@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 import { program } from "commander";
-import { logSuccess } from "helpers/messages";
+import { logError } from "helpers/messages";
 import makeAction from "./actions/make";
 import { loadTemplatesFile } from "./models/template/template";
 import createTemplateState from "./state/createTemplateState";
@@ -19,8 +19,8 @@ program
       if (!template) throw new Error(`404 - ${argv.config} not found`);
       templateState.setState(template);
       await makeAction("./" + path);
-    } catch (error) {
-      // TODO -> Error handler
+    } catch (error: any) {
+      logError(error);
     }
   });
 

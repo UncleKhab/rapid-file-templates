@@ -42,6 +42,7 @@
     "esbuild": "^0.17.7",
     "fs-extra": "^11.1.0",
     "inquirer": "^9.1.4",
+    "loadash": "^1.0.0",
     "prettier": "^2.8.4",
     "unqueue-cli": "^1.0.14",
     "util": "^0.12.5"

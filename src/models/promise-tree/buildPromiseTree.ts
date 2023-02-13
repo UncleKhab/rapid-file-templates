@@ -12,6 +12,7 @@ export default function buildPromiseTree(
 
   const parsedElement = parseElement(element);
   const currentPromise = createElementPromise(parsedElement, path, indent);
+
   switch (element.type) {
     case TemplateElementTypes.File:
       return { promise: currentPromise };
@@ -22,6 +23,10 @@ export default function buildPromiseTree(
           buildPromiseTree(item, `${path}/${parsedElement.elementProps?.name}`, indent + 2)
         );
       }
-      return { promise: currentPromise, rest: elements };
+      return {
+        promise: currentPromise,
+        failMessage: `${parsedElement.elementProps.name} failed to resolve`,
+        rest: elements,
+      };
   }
 }
