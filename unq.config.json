@@ -17,12 +17,9 @@
             "parser": "babel-ts",
             "content": [
               "import {FC} from 'react'",
-              "import useStyles from './styles.ts'",
-              "import {useTheme} from 'injectors/theme'",
+              "import styles from './styles'",
               "type Props = {}",
               "const [#componentName#]:FC<Props> = (props) => {",
-              "const theme = useTheme()",
-              "const styles = useStyles({theme})",
               "return <div className={styles.[#componentName#]Container}></div>",
               "}"
             ]
@@ -31,9 +28,46 @@
         {
           "type": "File",
           "elementProps": {
-            "name": "styles.css",
-            "parser": "css",
-            "content": [".[#className#] {", "border-radius: 12px;", "}"]
+            "name": "styles.scss",
+            "parser": "scss",
+            "content": [".[#className#] {", "border-radius: 1px solid black;", "}"]
+          }
+        }
+      ]
+    }
+  },
+  "semi-component": {
+    "mergeFields": [
+      { "label": "{{fileName}}", "defaultValue": "new-file-name" },
+      { "label": "{{componentName}}", "defaultValue": "" },
+      { "label": "{{cssClassName}}", "defaultValue": "container" }
+    ],
+    "enablePrettier": true,
+    "root": {
+      "type": "Folder",
+      "elementProps": { "name": "{{fileName}}" },
+      "elements": [
+        {
+          "type": "File",
+          "elementProps": {
+            "name": "{{fileName}}.tsx",
+            "parser": "babel-ts",
+            "content": [
+              "import {FC} from 'react'",
+              "import styles from './styles'",
+              "type Props = {}",
+              "const {{componentName}}:FC<Props> = (props) => {",
+              "return <div className={styles.{{componentName}}Container}></div>",
+              "}"
+            ]
+          }
+        },
+        {
+          "type": "File",
+          "elementProps": {
+            "name": "styles.scss",
+            "parser": "scss",
+            "content": [".{{cssClassName}} {", "border-radius: 1px solid black", "}"]
           }
         }
       ]
