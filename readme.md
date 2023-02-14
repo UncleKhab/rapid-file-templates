@@ -27,11 +27,13 @@ access the tool.
 - `<path>` is the destination path where the generated files will be placed.
 - `<template-name>` is the name of the JSON template you want to use to generate the files.
 
-## `Unq.config.json`
+**Add the unq.config.json file in your root folder (or where you plan to call the command)**
+
+## `unq.config.json`
 
 ```
 {
-  "component": {
+  "key-component": {
     "mergeFields": [
       { "label": "{{fileName}}", "defaultValue": "new-file-name" },
       { "label": "{{componentName}}", "defaultValue": "" },
@@ -75,6 +77,13 @@ access the tool.
 }
 ```
 
+Using the above example you can configure your template in any way you want.  
+Templates are accessed using the JSON file key, in the example above it's the "key-component"
+
+### Example
+
+    unq make ./src/ -t key-component
+
 ## `TemplateStructure`
 
 The `TemplateStructure` type is used to define the structure of a template file. It is defined as an
@@ -87,18 +96,6 @@ object with the following properties:
   [Prettier](https://prettier.io/).
 - `mergeFields`: an optional array of `MergeField` objects representing the merge fields in the
   template file.
-
-## `MergeField`
-
-The `MergeField` type is used to represent a merge field within a template file. It is defined as an
-object with the following properties:
-
-### Properties
-
-- `label` (required): a string representing the label or key of the merge field.
-- `value`: an optional string representing the value to replace the merge field with.
-- `defaultValue`: an optional string representing the default value to use if the `value` property
-  is not provided.
 
 ## `TemplateElement`
 
@@ -115,6 +112,18 @@ the following properties:
     the contents of a file.
 - `elements` (optional): An array of `TemplateElement` objects that define the contents of a
   directory.
+
+## `MergeField`
+
+The `MergeField` type is used to represent a merge field within a template file. It is defined as an
+object with the following properties:
+
+### Properties
+
+- `label` (required): a string representing the label or key of the merge field.
+- `value`: an optional string representing the value to replace the merge field with.
+- `defaultValue`: an optional string representing the default value to use if the `value` property
+  is not provided.
 
 _Code Generation - File Generation - Template Engine - Code Automation - CLI Tool - JSON Templates -
 File System - Code Scaffolding - Code Generation CLI - Code Templates - Project Boilerplate -
