@@ -13,8 +13,8 @@ export type TemplateStructure = {
 
 export async function loadTemplatesFile(argv: any) {
   try {
-    // READING TEMPLATES FROM unq.config.json
-    const templatesList: Record<string, TemplateStructure> = await readJSON("./unq.config.json");
+    // READING TEMPLATES FROM rapid.config.json
+    const templatesList: Record<string, TemplateStructure> = await readJSON("./rapid.config.json");
     // SETING THE DEFAULT TEMPLATE
     let template: TemplateStructure = defaultTemplate;
 

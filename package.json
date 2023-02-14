@@ -1,15 +1,15 @@
 {
-  "name": "unqueue-cli",
-  "version": "1.0.18",
+  "name": "rapid-file-templates",
+  "version": "0.1.1",
   "main": "./dist/index.js",
-  "types": "./dist/unqueue-cli.d.ts",
+  "types": "./dist/rapid-file-templates.d.ts",
   "bin": {
-    "unq": "./dist/index.js"
+    "rapid": "./dist/index.js"
   },
   "scripts": {
     "test": "jest",
     "build": "esbuild src/index.ts --bundle --outdir=dist --platform=node --minify && npm run build:types",
-    "build:types": "tsc --emitDeclarationOnly --declaration --project tsconfig.json --outFile ./dist/unqueue-cli.d.ts",
+    "build:types": "tsc --emitDeclarationOnly --declaration --project tsconfig.json --outFile ./dist/rapid-file-templates.d.ts",
     "build:watch": "esbuild src/index.ts --bundle --outdir=dist --platform=node --watch"
   },
   "repository": {

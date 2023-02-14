@@ -1,8 +1,6 @@
-# Unqueue-CLI
+# Rapid File Templates
 
-## File Template Generation CLI Tool
-
-### Unleash your file creation power with Unq Make! Say goodbye to tedious and time-consuming manual file creation.
+Say goodbye to tedious and time-consuming manual file creation.
 
 **The tool is designed to make it easy for you to generate common files for your projects and
 eliminates the need for repetitive manual work.**
@@ -11,27 +9,27 @@ eliminates the need for repetitive manual work.**
 
 To install the package , run the following command in your terminal:
 
-    npm install --save-dev unqueue-cli
+    npm install --save-dev rapid-file-templates
 
 Or you can install the package globally:
 
-    npm install -g unqueue-cli
+    npm install -g rapid-file-templates
 
-Once the installation is complete, you should be able to run the command `unq` in your terminal to
+Once the installation is complete, you should be able to run the command `rapid` in your terminal to
 access the tool.
 
 # Usage
 
-    unq make <path> -t <template-key>
+    rapid make <path> -t <template-key>
 
 - `<path>` is the destination path where the generated files will be placed.
 - `<template-name>` is the name of the JSON template you want to use to generate the files.
 
 ## Example
 
-**Add the unq.config.json file in your root folder (or where you plan to call the command)**
+**Add the rapid.config.json file in your project root folder**
 
-## `unq.config.json`
+## `rapid.config.json`
 
 ```
 {
@@ -82,7 +80,7 @@ access the tool.
 **Using the above example you can configure your template in any way you want.  
 Templates are accessed using the JSON file key, in the example above it's the "key-component"**
 
-    unq make ./src/ -t key-component
+    rapid make ./src/ -t key-component
 
 ## `TemplateStructure`
 
