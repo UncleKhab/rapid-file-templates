@@ -1,4 +1,4 @@
-#
+# Unqueue-CLI
 
 ## File Template Generation CLI Tool
 
@@ -26,6 +26,8 @@ access the tool.
 
 - `<path>` is the destination path where the generated files will be placed.
 - `<template-name>` is the name of the JSON template you want to use to generate the files.
+
+## Example
 
 **Add the unq.config.json file in your root folder (or where you plan to call the command)**
 
@@ -77,10 +79,8 @@ access the tool.
 }
 ```
 
-Using the above example you can configure your template in any way you want.  
-Templates are accessed using the JSON file key, in the example above it's the "key-component"
-
-### Example
+**Using the above example you can configure your template in any way you want.  
+Templates are accessed using the JSON file key, in the example above it's the "key-component"**
 
     unq make ./src/ -t key-component
 
