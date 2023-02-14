@@ -5,7 +5,6 @@ import inquirer, { InputQuestion } from "inquirer";
 import { MergeField } from "../merge-field/types";
 
 export type TemplateStructure = {
-  name: string;
   root: TemplateElement;
   enablePrettier?: boolean;
   fileName?: string;
@@ -19,10 +18,12 @@ export async function loadTemplatesFile(argv: any) {
     // SETING THE DEFAULT TEMPLATE
     let template: TemplateStructure = defaultTemplate;
 
-    // ARGV APPLICATION
+    // Retrieving the template
     if (argv.template && templatesList.hasOwnProperty(argv.template))
       template = templatesList[argv.template];
-    if (argv.fileName) template.fileName = argv.fileName;
+    else {
+      // TODO -> Template not found
+    }
 
     // LOADING THE MERGEFIELDS
     if (template.mergeFields) {
@@ -39,7 +40,7 @@ export async function loadTemplatesFile(argv: any) {
             name: `response`,
             type: "input",
           };
-          const response = await inquirer.prompt([question]).then((data) => data.response);
+          const response = await inquirer.prompt([question]).then((data) => data.response); // TODO -> Make fn for this
           if (response) {
             currentMergeField.value = response;
           }

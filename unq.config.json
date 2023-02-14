@@ -1,6 +1,5 @@
 {
   "component": {
-    "name": "SimpleComponent",
     "mergeFields": [
       { "label": "[#fileName#]", "defaultValue": "new-file-name" },
       { "label": "[#componentName#]" },

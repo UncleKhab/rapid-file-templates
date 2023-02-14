@@ -8,7 +8,6 @@ export interface TemplateElement {
   type: TemplateElementTypes;
   elementProps: TemplateElementProps;
   enablePrettier?: boolean;
-  description?: string;
   elements?: TemplateElement[];
 }
 
