@@ -27,7 +27,7 @@ access the tool.
 - `<path>` is the destination path where the generated files will be placed.
 - `<template-name>` is the name of the JSON template you want to use to generate the files.
 
-## `Unq.config.json`
+## `unq.config.json`
 
 ```
 {
