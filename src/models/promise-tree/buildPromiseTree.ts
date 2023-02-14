@@ -23,7 +23,6 @@ export default function buildPromiseTree(
           buildPromiseTree(item, `${path}/${parsedElement.elementProps?.name}`, indent + 2)
         );
       }
-
       return {
         promise: currentPromise,
         failMessage: `${parsedElement.elementProps.name} failed to resolve`,
